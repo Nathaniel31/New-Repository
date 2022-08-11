@@ -15,5 +15,32 @@ def mostFrequentLetter(Letter):
 
     
 
-print(mostFrequentLetter("I am a boy"))
+##print(mostFrequentLetter("I am a boy"))
+
+#using dictionary
+def mostFrqLetter(s):
+    s = s.lower()
+    s = s.replace(" ","")
+    count = dict()
+    maxLetter = None
+    maxCount = 0
+    for i in s:
+        if count.get(i,0) == 0:
+            count[i] = 1
+        else:
+            count[i]+=1
+        if count[i] >maxCount:
+            maxCount = count[i]
+            maxLetter=i
+    return maxLetter
+
+def testMostFrqLetter():
+    print("testing mostFrqLetter....")
+    assert mostFrqLetter("sjfhks") == "s"
+    assert mostFrqLetter("AABBAA") == "a"
+    assert mostFrqLetter("SAT reading") == "a"
+    print("all passed")
+
+testMostFrqLetter()
+print(mostFrqLetter("sjfhks"))
 
